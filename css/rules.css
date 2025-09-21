@@ -1,0 +1,116 @@
+body {
+    background: url('/images/b1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.rules-container {
+    background: rgba(10, 10, 20, 0.85);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 600px; /* Reduced size */
+    width: 80%;
+    border: 4px solid rgba(150, 150, 255, 0.6);
+    box-shadow: 0 0 35px rgba(150, 150, 255, 0.35);
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.rules-container h2 {
+    font-family: 'Nosifer', cursive;
+    font-size: 3rem; /* Slightly smaller */
+    color: rgb(255, 0, 0);
+    margin: 0 0 30px 0;
+    text-shadow: 0 0 12px rgba(150, 150, 255, 0.7);
+    line-height: 1.2;
+}
+
+.rules-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+    width: 100%;
+}
+
+.rules-container li {
+    font-family: 'Chiller', cursive;
+    font-size: 1.6rem; /* Slightly smaller */
+    color: rgba(0, 200, 200, 0.9);
+    text-shadow: 0 0 8px rgba(0, 200, 200, 0.6);
+    margin: 15px 0;
+    line-height: 1.3;
+}
+
+.rules-container button {
+    background: rgba(150, 150, 255, 0.5);
+    color: rgba(200, 200, 255, 0.95);
+    border: 3px solid rgba(150, 150, 255, 0.7);
+    padding: 15px 35px;
+    font-size: 1.4rem; /* Slightly smaller */
+    cursor: pointer;
+    border-radius: 10px;
+    font-family: 'Creepster', cursive;
+    text-transform: uppercase;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.rules-container button:hover {
+    background: rgba(150, 150, 255, 0.7);
+    box-shadow: 0 0 20px rgba(150, 150, 255, 0.6);
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .rules-container {
+        padding: 25px;
+        max-width: 500px;
+        width: 85%;
+    }
+
+    .rules-container h2 {
+        font-size: 2.2rem;
+    }
+
+    .rules-container li {
+        font-size: 1.3rem;
+    }
+
+    .rules-container button {
+        font-size: 1.2rem;
+        padding: 12px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .rules-container {
+        padding: 20px;
+        max-width: 400px;
+        width: 90%;
+    }
+
+    .rules-container h2 {
+        font-size: 1.8rem;
+    }
+
+    .rules-container li {
+        font-size: 1.1rem;
+        margin: 12px 0;
+    }
+
+    .rules-container button {
+        font-size: 1rem;
+        padding: 10px 25px;
+    }
+}

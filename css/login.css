@@ -1,0 +1,234 @@
+body {
+    background: url('/images/b-login.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+.form-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.form-container {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 30px; /* Reduced padding to save vertical space */
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.7), 0 0 60px rgba(255, 0, 0, 0.3);
+    position: relative;
+    width: 400px;
+    max-width: 90%;
+    border: none;
+    min-height: 500px; /* Ensure enough vertical space for OTP section */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    box-sizing: border-box; /* Prevent padding issues */
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 20px;
+    background: radial-gradient(circle, #ff0000 20%, transparent 70%);
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.form-container h2 {
+    font-family: 'Nosifer', cursive;
+    font-size: 48px;
+    color: rgba(255, 243, 240, 0.9);
+    margin-bottom: 20px; /* Reduced margin to save space */
+    text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+    transition: text-shadow 0.3s;
+}
+
+.form-container h2:hover {
+    text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000;
+}
+
+.input-group {
+    margin: 15px 0; /* Reduced margin to save space */
+}
+
+.form-container button {
+    margin-top: 15px; /* Reduced margin to save space */
+}
+
+.form-container p {
+    color: #ccccff;
+    font-family: 'Chiller', cursive;
+    font-size: 24px; /* Slightly reduced for better fit */
+}
+
+.form-container p a {
+    color: #00ffcc;
+    font-family: 'Creepster', cursive;
+    text-decoration: none;
+    transition: text-shadow 0.3s;
+}
+
+.form-container p a:hover {
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px; /* Reduced padding to save space */
+    font-size: 18px; /* Slightly reduced for better fit */
+    background: #111;
+    color: #fff;
+    border: 2px solid #ff0000;
+    border-radius: 8px;
+    font-family: 'Quintessential', cursive;
+    transition: all 0.3s;
+    box-sizing: border-box;
+}
+
+.form-container input:focus {
+    outline: none;
+    border-color: #00ff00;
+    box-shadow: 0 0 15px #00ff00;
+}
+
+.form-container input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Creepster', cursive;
+}
+
+.submit-btn {
+    background: rgba(20, 20, 30, 0.7);
+    border: 2px solid rgba(240, 240, 255, 0.8);
+    color: rgba(255, 0, 0, 0.9);
+    padding: 12px 25px; /* Reduced padding to save space */
+    font-size: 22px; /* Slightly reduced for better fit */
+    cursor: pointer;
+    border-radius: 10px;
+    font-family: 'Creepster', cursive;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+    background: rgb(255, 0, 0);
+    color: #fffbfb;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 81, 0, 0.938), 0 0 100px rgba(241, 52, 5, 0.6);
+}
+
+.submit-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+    z-index: -1;
+}
+
+.submit-btn:hover::after {
+    width: 200px;
+    height: 200px;
+}
+
+.signin-link {
+    font-family: 'Nosifer', cursive;
+    font-size: 20px;
+    color: rgba(200, 200, 255, 0.9);
+    margin-top: 15px; /* Reduced margin to save space */
+}
+
+.signin-link a {
+    color: #00ff00;
+    text-decoration: none;
+    transition: text-shadow 0.3s;
+}
+
+.signin-page {
+    background: url('/images/b-signin.jpeg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+#signup-username,
+#signup-password,
+#email {
+    margin-bottom: 15px; /* Reduced margin to save space */
+}
+
+.signin-link a:hover {
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+}
+
+#otp-message {
+    color: #ff0000;
+    font-size: 16px; /* Reduced font size to prevent overflow */
+    font-family: 'Chiller', cursive;
+    margin: 5px 0; /* Reduced margin to save space */
+    line-height: 1.2; /* Tighten line height for better fit */
+}
+
+#otp-section {
+    display: flex; /* Use flexbox for horizontal alignment */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: center; /* Center elements */
+    align-items: center; /* Align vertically */
+    gap: 10px; /* Space between elements */
+    margin-top: 10px; /* Reduced margin to save space */
+}
+
+#otp-section input {
+    width: 100px; /* Fixed width for OTP input to save space */
+    padding: 8px; /* Reduced padding */
+    font-size: 16px; /* Reduced font size */
+    text-align: center; /* Center OTP digits */
+}
+
+#otp-section button {
+    margin: 5px; /* Reduced margin to save space */
+    padding: 8px 15px; /* Reduced padding */
+    font-size: 18px; /* Reduced font size */
+    border-radius: 8px; /* Slightly smaller radius */
+    font-family: 'Creepster', cursive;
+    background: linear-gradient(to bottom, #ff3333, #990000);
+    color: #fff;
+    border: 2px solid #ff6666;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#otp-section button:hover {
+    background: linear-gradient(to bottom, #ff6666, #cc0000);
+    box-shadow: 0 0 15px #ff3333;
+}
+
+#resend-otp {
+    background: linear-gradient(to bottom, #00cc66, #009933);
+    border: 2px solid #66ff99;
+}
+
+#resend-otp:disabled {
+    background: #555;
+    border: 2px solid #777;
+    cursor: not-allowed;
+}
+
+#request-otp {
+    margin-bottom: 15px; /* Reduced margin to save space */
+}

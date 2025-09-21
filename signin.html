@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In - GHOST PLAY</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quintessential&family=Creepster&family=Chiller&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <script src="js/login.js" defer></script>
+  </head>
+  <body class="signin-page">
+    <div class="form-container">
+      <h2>Join the Ghost World</h2>
+      <form id="signin-form" novalidate>
+        <input
+          type="text"
+          id="signup-username"
+          placeholder="Username"
+          required
+        />
+        <input
+          type="password"
+          id="signup-password"
+          placeholder="Password"
+          required
+        />
+        <input type="email" id="email" placeholder="Email ID" required />
+        <button type="button" id="request-otp" class="submit-btn">
+          Request OTP
+        </button>
+
+        <div id="otp-section" style="display: none;">
+          <input
+            type="text"
+            id="otp"
+            placeholder="Enter OTP"
+            maxlength="4"
+            required
+          />
+          <button type="submit">Verify OTP</button>
+          <button type="button" id="resend-otp" disabled>Resend OTP</button>
+        </div>
+        <p id="otp-message"></p>
+      </form>
+    </div>
+  </body>
+</html>

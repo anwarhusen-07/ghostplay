@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&family=Creepster&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background:url("/images/b10.jpg");
+    background-size: cover;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+#login-form input {
+    transition: none; /* Prevent visual flicker */
+}
+
+#login-form.submitting input,
+#login-form.submitting .submit-btn {
+    opacity: 0.7; /* Visual feedback during submission */
+    cursor: not-allowed;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(10, 10, 20, 0.95), rgba(30, 30, 40, 0.9));
+    z-index: 0;
+}
+
+.ghost-screen {
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: screenFloat 5s ease-in-out infinite;
+}
+
+.main-title {
+    font-family: 'Nosifer', cursive;
+    font-size: 10em;
+    color: rgb(214, 0, 0);
+    text-shadow: 0 0 25px #333333, 0 0 50px #333333, 0 0 75px #333333;
+    margin: 0;
+    animation: titlePulse 3s infinite ease-in-out;
+    line-height: 1.1;
+    opacity: 0.9;
+}
+
+.subtitle {
+    font-family: 'Chiller', cursive;
+    font-size: 4em;
+    color: rgba(180, 180, 200, 0.9);
+    margin-top: 25px;
+    text-shadow: 0 0 20px #666666, 0 0 40px #666666;
+    animation: subtitleDrift 6s ease-in-out infinite, flicker 3s infinite;
+    opacity: 0.85;
+}
+
+.login-btn {
+    margin-top: 100px;
+    padding: 12px 15px;
+    font-family: 'Eater', cursive;
+    font-size: 2em;
+    background: rgba(20, 20, 30, 0.7);
+    border: 2px solid rgba(240, 240, 255, 0.8);
+    color: rgba(255, 0, 0, 0.9);
+    border-radius: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(240, 240, 255, 0.5);
+    transition: all 0.4s ease;
+    animation: btnFloat 4s infinite alternate;
+    opacity: 0.85;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-btn:hover {
+    background: rgb(255, 0, 0);
+    color: #fffbfb;
+    transform: scale(1.1);
+    box-shadow: 0 0 50px rgba(255, 81, 0, 0.938);
+    opacity: 1;
+}
+
+.login-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(240, 240, 255, 0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.login-btn:hover::after {
+    opacity: 1;
+}
+
+
+
+.ghost-silhouette {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 200px;
+    height: 300px;
+    background: url('https://www.pngall.com/wp-content/uploads/5/Ghost-Transparent.png') no-repeat center;
+    background-size: contain;
+    opacity: 0.3;
+    z-index: 1;
+    animation: ghostFade 8s infinite ease-in-out;
+}
+
+@keyframes screenFloat {
+    0% {
+        opacity: 0.8;
+        transform: translateY(10px);
+    }
+    50% {
+        opacity: 0.95;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 0.8;
+        transform: translateY(10px);
+    }
+}
+
+@keyframes titlePulse {
+    0% {
+        text-shadow: 0 0 25px #333333, 0 0 50px #333333;
+        opacity: 0.9;
+    }
+    50% {
+        text-shadow: 0 0 40px #333333, 0 0 80px #333333;
+        opacity: 0.95;
+    }
+    100% {
+        text-shadow: 0 0 25px #333333, 0 0 50px #333333;
+        opacity: 0.9;
+    }
+}
+
+@keyframes subtitleDrift {
+    0% {
+        opacity: 0.7;
+        transform: translateX(-10px);
+    }
+    50% {
+        opacity: 0.9;
+        transform: translateX(10px);
+    }
+    100% {
+        opacity: 0.7;
+        transform: translateX(-10px);
+    }
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 0.85;
+    }
+    20%, 24%, 55% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes btnFloat {
+    0% {
+        transform: translateY(5px);
+        box-shadow: 0 0 25px rgba(240, 240, 255, 0.5);
+    }
+    100% {
+        transform: translateY(-5px);
+        box-shadow: 0 0 40px rgba(240, 240, 255, 0.7);
+    }
+}
+
+@keyframes ghostFade {
+    0% {
+        opacity: 0.1;
+        transform: translateX(0);
+    }
+    50% {
+        opacity: 0.3;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 0.1;
+        transform: translateX(0);
+    }
+}

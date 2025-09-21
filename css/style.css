@@ -1,0 +1,42 @@
+body {
+    font-family: 'Creepster', cursive;
+    background: #000;
+    color: white;
+    text-align: center;
+}
+
+.level-selection-container {
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #ff0000;
+}
+
+p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.level-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.level-buttons button {
+    padding: 15px 25px;
+    background-color: #ff0000;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.level-buttons button:hover {
+    background-color: #d10000;
+}

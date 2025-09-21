@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Levels - GHOST PLAY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Creepster&family=Chiller&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/levels.css">
+    <script src="js/quiz.js" defer></script>
+</head>
+<body>
+    <a href="/contact.html" class="contact-btn">Contact Us</a>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+    <div class="levels-wrapper">
+        <div class="levels-container">
+            <h2>CHOOSE YOUR NIGHTMARE</h2>
+            <button class="level-btn" onclick="startQuiz('simple')">Simple</button>
+            <button class="level-btn" onclick="startQuiz('medium')">Medium</button>
+            <button class="level-btn" onclick="startQuiz('hard')">Hard</button>
+        </div>
+    </div>
+    <script>
+        async function logout() {
+            const userId = localStorage.getItem('userId');
+            if (!userId) {
+                alert('You are not logged in');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:3000/logout', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ userId })
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    localStorage.removeItem('userId');
+                    alert(result.message);
+                    window.location.href = 'login.html';
+                } else {
+                    alert(result.message);
+                }
+            } catch (error) {
+                console.error('Error logging out:', error);
+                alert('An error occurred during logout. Please try again later.');
+            }
+        }
+    </script>
+</body>
+</html>
