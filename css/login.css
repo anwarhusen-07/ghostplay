@@ -232,3 +232,57 @@ body {
 #request-otp {
     margin-bottom: 15px; /* Reduced margin to save space */
 }
+@media (max-width: 768px) {
+    .form-container {
+        width: 90%;
+        min-height: auto;
+        padding: 20px;
+    }
+
+    .form-container h2 {
+        font-size: 36px;
+    }
+
+    .form-container input {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .submit-btn {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+
+    .form-container p {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .form-container {
+        width: 100%;
+        border-radius: 10px;
+        padding: 15px;
+    }
+
+    .form-container h2 {
+        font-size: 28px;
+    }
+
+    .form-container input {
+        font-size: 15px;
+    }
+
+    .submit-btn {
+        font-size: 16px;
+        padding: 8px 18px;
+    }
+
+    .form-container p {
+        font-size: 18px;
+    }
+}

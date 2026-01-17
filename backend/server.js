@@ -30,10 +30,13 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/ghostplay')
+// ------------------ UPDATED MONGODB CONNECTION ------------------
+mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('MongoDB connected'))
     .catch((err) => console.error('Database connection error:', err));
+// -----------------------------------------------------------------
+
+
 
 // User schema and model
 const userSchema = new mongoose.Schema({
