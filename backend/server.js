@@ -8,7 +8,8 @@ const crypto = require('crypto');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;  // <-- this line ensures it works locally & on Vercel
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 // In-memory OTP storage (use a database or Redis in production)
 const otpStore = new Map();
