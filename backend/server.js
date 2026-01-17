@@ -1,4 +1,4 @@
-require('dotenv').config();
+const mySecret = process.env.MY_SECRET;
 const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
@@ -324,16 +324,13 @@ app.post('/api/contact', async (req, res) => {
     }
 });
 
+// Serve quiz page
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'index.html'));
+});
 // Serve contact page
 app.get('/contact', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'contact.html'));
 });
 
-// Serve quiz page
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'index.html'));
-});
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
