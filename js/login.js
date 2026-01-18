@@ -37,7 +37,7 @@ document.getElementById('signin-form')?.addEventListener('submit', async (e) => 
   console.log('Signup request data:', { username, password, email, otp, otpType: typeof otp });
 
   try {
-    const response = await fetch('http://localhost:3000/signup', {
+    const response = await fetch(`${API_BASE_URL}/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password, email, otp: String(otp) }), // Ensure OTP is sent as string
@@ -75,7 +75,7 @@ document.getElementById('request-otp')?.addEventListener('click', async () => {
   otpMessage.style.color = 'white';
 
   try {
-    const response = await fetch('http://localhost:3000/request-otp', {
+    const response = await fetch(`${API_BASE_URL}/request-otp`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email }),
@@ -119,7 +119,7 @@ document.getElementById('resend-otp')?.addEventListener('click', async () => {
   otpMessage.style.color = 'white';
 
   try {
-    const response = await fetch('http://localhost:3000/request-otp', {
+    const response = await fetch(`${API_BASE_URL}/request-otp`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email }),
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loginForm.classList.add('submitting');
 
     try {
-      const response = await fetch('http://localhost:3000/login', {
+      const response = await fetch(`${API_BASE_URL}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),

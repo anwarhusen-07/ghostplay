@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Play background music on first user interaction
-    document.addEventListener('click', function() {
+    document.addEventListener('click', function () {
         const bgMusic = document.getElementById('background-music');
-        bgMusic.play().catch(function(error) {
+        bgMusic.play().catch(function (error) {
             console.log("Background music autoplay prevented: ", error);
         });
     }, { once: true });
 
     // Handle form submission
-    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    document.getElementById('contact-form').addEventListener('submit', async function (e) {
         e.preventDefault();
         const formMessage = document.getElementById('form-message');
         const formData = {
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch('http://localhost:3000/api/contact', {
+            const response = await fetch(`${API_BASE_URL}/api/contact`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)

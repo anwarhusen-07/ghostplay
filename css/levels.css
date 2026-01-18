@@ -114,6 +114,17 @@ body {
 }
 
 /* Responsive adjustments */
+@media (max-width: 1024px) {
+    .levels-container {
+        padding: 40px;
+        max-width: 500px;
+    }
+
+    .levels-container h2 {
+        font-size: 3rem;
+    }
+}
+
 @media (max-width: 768px) {
     .levels-container {
         padding: 30px;
@@ -130,18 +141,11 @@ body {
         padding: 15px 30px;
     }
 
-    .logout-btn {
-        font-size: 1.2rem;
-        padding: 8px 16px;
-        top: 15px;
-        right: 15px;
-    }
-
+    .logout-btn,
     .contact-btn {
         font-size: 1.2rem;
         padding: 8px 16px;
         top: 15px;
-        left: 15px;
     }
 }
 
@@ -149,29 +153,79 @@ body {
     .levels-container {
         padding: 20px;
         max-width: 350px;
+        border-width: 3px;
     }
 
     .levels-container h2 {
         font-size: 2rem;
+        margin-bottom: 25px;
     }
 
     .level-btn {
         font-size: 1.2rem;
-        padding: 12px 25px;
-        width: 85%;
+        padding: 12px 20px;
+        width: 90%;
+        margin: 10px 0;
     }
 
     .logout-btn {
-        font-size: 1rem;
+        font-size: 0.9rem;
         padding: 6px 12px;
         top: 10px;
         right: 10px;
     }
 
     .contact-btn {
-        font-size: 1rem;
+        font-size: 0.9rem;
         padding: 6px 12px;
         top: 10px;
         left: 10px;
+    }
+}
+
+/* Very Small Mobile */
+@media (max-width: 350px) {
+    .levels-container {
+        padding: 15px;
+        width: 95%;
+    }
+
+    .levels-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .level-btn {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+}
+
+/* Landscape Mode Adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+    .levels-container {
+        padding: 10px;
+        transform: scale(0.85);
+    }
+
+    .levels-container h2 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+
+    .level-btn {
+        font-size: 1.1rem;
+        padding: 8px 20px;
+        margin: 5px 0;
+    }
+
+    body {
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+    }
+
+    .logout-btn,
+    .contact-btn {
+        position: fixed;
     }
 }

@@ -1,4 +1,4 @@
-let hearts =5;
+let hearts = 5;
 let currentQuestion = 0;
 let correctAnswers = 0;
 let gameOver = false;
@@ -86,7 +86,7 @@ async function fetchUserProgress() {
 
   try {
     const response = await fetch(
-      `http://localhost:3000/get-user-progress?userId=${userId}`
+      `${API_BASE_URL}/get-user-progress?userId=${userId}`
     );
     const result = await response.json();
     if (response.ok) {
@@ -127,9 +127,8 @@ function updateQuestion() {
   const questionText = document.getElementById("question-text");
   const scoreText = document.getElementById("score-text");
   if (questionText) {
-    questionText.textContent = `Question ${currentQuestion + 1}: ${
-      questions[currentQuestion].question
-    }`;
+    questionText.textContent = `Question ${currentQuestion + 1}: ${questions[currentQuestion].question
+      }`;
     let buttons = document.querySelectorAll(".options button");
     buttons.forEach((button, index) => {
       button.textContent = `${questions[currentQuestion].options[index]}`;
@@ -201,25 +200,25 @@ function showScaryEffect() {
   const scaryEffect = document.getElementById("scary-effect");
   const scaryImage = document.getElementById("scary-image");
   const wrongText = document.getElementById("wrong-answer-text");
-  
+
   // Display the container but keep image at scale(0)
   scaryEffect.style.display = "flex";
-  
+
   // Force browser to recognize the element before animating
   setTimeout(() => {
     // Add the zoom class to trigger the animation
     scaryImage.classList.add("zoom");
-    
+
     // Display the wrong answer text with delay
     setTimeout(() => {
       wrongText.style.opacity = "1";
     }, 800);
-    
+
     // Hide the scary effect after 3 seconds
     setTimeout(() => {
       scaryImage.classList.remove("zoom");
       wrongText.style.opacity = "0";
-      
+
       // Wait for animation to complete before hiding
       setTimeout(() => {
         scaryEffect.style.display = "none";
@@ -243,9 +242,8 @@ function showBadgeAndLevelTransition() {
     const badge = document.getElementById("badge");
     const badgeText = document.getElementById("badge-text");
     if (badge && badgeText) {
-      badgeText.textContent = `Congratulations! You earned the ${
-        level.charAt(0).toUpperCase() + level.slice(1)
-      } Level Badge!`;
+      badgeText.textContent = `Congratulations! You earned the ${level.charAt(0).toUpperCase() + level.slice(1)
+        } Level Badge!`;
       badge.style.display = "flex";
       unlockNextLevel();
       saveUserProgress();
@@ -282,34 +280,34 @@ function showGameOver() {
   const gameOverImage = document.getElementById("game-over-image");
   const gameOverText = document.getElementById("game-over-text");
   const rulesButton = document.getElementById("rules-button");
-  
+
   // First, make the container visible
   gameOverScreen.style.display = "flex";
-  
+
   // Force browser to recognize the element before animating
   setTimeout(() => {
     // Animate the image - it starts slightly zoomed in and then settles to normal size
     gameOverImage.classList.add("zoom");
-    
+
     // After image appears, fade in the text with a slight delay
     setTimeout(() => {
       gameOverText.style.opacity = "1";
       gameOverText.style.transform = "translateY(0)";
     }, 1000);
-    
+
     // Animate the button last
     setTimeout(() => {
       rulesButton.style.opacity = "1";
       rulesButton.style.transform = "translateY(0)";
     }, 1500);
   }, 10);
-  
+
   // Stop any background music
   if (bgMusic) {
     bgMusic.pause();
     bgMusic.currentTime = 0;
   }
-  
+
   // Optional: Play a game over sound here
   // const gameOverSound = document.getElementById("game-over-sound");
   // if (gameOverSound) {
@@ -331,7 +329,7 @@ function saveUserProgress() {
     badges: [`${level}-level-badge`],
   };
 
-  fetch("http://localhost:3000/save-user-progress", {
+  fetch(`${API_BASE_URL}/save-user-progress`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(userProgress),
@@ -358,7 +356,7 @@ function saveUserScore() {
     score: correctAnswers,
   };
 
-  fetch("http://localhost:3000/save-user-score", {
+  fetch(`${API_BASE_URL}/save-user-score`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(userScore),

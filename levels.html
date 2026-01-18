@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Levels - GHOST PLAY</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Creepster&family=Chiller&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Creepster&family=Chiller&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/levels.css">
+    <script src="js/config.js"></script>
     <script src="js/quiz.js" defer></script>
 </head>
+
 <body>
     <a href="/contact.html" class="contact-btn">Contact Us</a>
     <button class="logout-btn" onclick="logout()">Logout</button>
@@ -28,7 +32,7 @@
             }
 
             try {
-                const response = await fetch('http://localhost:3000/logout', {
+                const response = await fetch(`${API_BASE_URL}/logout`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ userId })
@@ -49,4 +53,5 @@
         }
     </script>
 </body>
+
 </html>

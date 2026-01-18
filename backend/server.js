@@ -234,4 +234,9 @@ app.get('/', (req, res) => res.sendFile(path.join(__dirname, '..', 'index.html')
 app.get('/contact', (req, res) => res.sendFile(path.join(__dirname, '..', 'contact.html')));
 
 // ------------------ Start Server ------------------
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// ------------------ Start Server ------------------
+if (require.main === module) {
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
+
+module.exports = app;

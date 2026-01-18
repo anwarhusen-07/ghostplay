@@ -103,7 +103,7 @@ async function fetchUserProgress() {
 
   try {
     const response = await fetch(
-      `http://localhost:3000/get-user-progress?userId=${userId}`
+      `${API_BASE_URL}/get-user-progress?userId=${userId}`
     );
     const result = await response.json();
     if (response.ok) {
@@ -130,9 +130,8 @@ function updateQuestion() {
   const questionText = document.getElementById("question-text");
   const scoreText = document.getElementById("score-text");
   if (questionText) {
-    questionText.textContent = `Question ${currentQuestion + 1}: ${
-      questions[currentQuestion].question
-    }`;
+    questionText.textContent = `Question ${currentQuestion + 1}: ${questions[currentQuestion].question
+      }`;
     let buttons = document.querySelectorAll(".options button");
     buttons.forEach((button, index) => {
       button.textContent = `${questions[currentQuestion].options[index]}`;
@@ -240,9 +239,8 @@ function showBadgeAndLevelTransition() {
     const badge = document.getElementById("badge");
     const badgeText = document.getElementById("badge-text");
     if (badge && badgeText) {
-      badgeText.textContent = `Congratulations! You earned the ${
-        level.charAt(0).toUpperCase() + level.slice(1)
-      } Level Badge!`;
+      badgeText.textContent = `Congratulations! You earned the ${level.charAt(0).toUpperCase() + level.slice(1)
+        } Level Badge!`;
       badge.style.display = "block";
       saveUserProgress();
       saveUserScore();
@@ -316,7 +314,7 @@ function saveUserProgress(isSpecial = false) {
 
   const userProgress = { userId, badges };
 
-  fetch("http://localhost:3000/save-user-progress", {
+  fetch(`${API_BASE_URL}/save-user-progress`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(userProgress),
@@ -343,7 +341,7 @@ function saveUserScore() {
     score: correctAnswers,
   };
 
-  fetch("http://localhost:3000/save-user-score", {
+  fetch(`${API_BASE_URL}/save-user-score`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(userScore),
